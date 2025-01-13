@@ -1,0 +1,199 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ang Sangyaw</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #25235c;
+            padding: 10px 20px;
+            color: white;
+            position: relative;
+        }
+        .logo {
+            height: 175px; 
+        }
+        .title-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .title-image {
+            height: 175px; 
+        }
+        .menu-button {
+            font-size: 1.5em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            position: absolute;
+            right: 55px;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #25235c;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+        .sidebar input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+        }
+        .sidebar a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #25235c;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.5em;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #main {
+            transition: margin-left 0.3s;
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        .welcome-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+        .welcome-container h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            color: #25235c;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .welcome-container p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .blank-space {
+            height: 100vh;
+            background-color: #fff;
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://lh3.googleusercontent.com/fife/ALs6j_GfOqowkNT_Kzfa9vlF0IGBoMoqHQZg7Tf3nuALXAb7EIkifvSbiswh9nyeArej2eOatHIq-Fd74KDTV1M9HVVO8h3NZUJgL9q3m7JMRhSF_zianduuXplau8FxXMzimdrPAWXvyqGmBN3OnVPRvEWViHJDWxnWcX57lwDtBzecZFhIjyKsZn1LX8Cd4YgIQxsBBf8mYLIUCSsM_K4Vibj54_VZwid4H8raOfAYycmolrwCYYDbmog-rVFRYQD4rVY5OPoM2sk5z_ltUYAf8qh4Edj0TOvPNd4S3sCaas4dZa0H4XyJdEP2cdOv2BWkhWJpC5man_GQkfhCHRrktWWwE3QB2X-aCVsXtDjnB_EYb2D7d_l7maZtdOKWTRUq5eztcDcoyuE7YaxQd-PBU0skyZvUxnqDa30MpkY9jQ3y-rBmRfSGgIw6cXsHP5pAM3Sz7Ws0M8mPh_MyD0Kv4dtKlxifFWiUxxR_Io52bwtxa0GBq2EHiwCQtatsnIoxnldF7RHNJ96hbjZKUCq6-y1cZv0Q6kj-9_CDSMTG9UNe2wOvgkQiilp5uuVLKOmvxWJA1vsdbUISQsDMbMNzvcdWc120HBxh7fIPwq92morxVfZID3HIRw_ahHffkX1XaNclBDxRvUaIYxGrslHjR7pRFuI0sWZAivcEO7Rhfs1Gddj8wOWCRV0gFHQpYYvJmyWxXQ5knwXM7XHIZCMTVJrQMjI9Ic6VGstSkv9E8jRqVvRD2Re9uB6U9t8PFULYYXqk9nHItWZvwJNHylt1LqFMlct7Xy18FxlskEOfajFzwDaTMnnz5PTF5G6O53Bfr-wF5m4sbnAUkhMmOWxFtXIKbnMbLK25UPzFG0hGQzD6s7Y6Ikg9jxTaU4kJ1g-nOlZmt6RVgktjEfG1WfknitobscNWuwQ0bzn0IyJCdCOVpN2GdYl3EA57McbtwOB9LVhTrbp8Zs6yKGAotmhFYc0vOp_07W4_FAbRL7HJcc5DbMZBLIMPuFXJp8TxCgodNKODH_qus8J7BAjyDUo88eyenC9mjoNwPcScRkGxUmOESF6xzKzwPQmkAmh6WUZnu1sR6BFkJkTsDCBRLv1yrXoDHNG7RFcmxJG0SzjuPnTTreicjHqO7353RAtUW6OsqmRZ04yW3O4icpH9D7KjwRPCqoguHhRHKPYAKL6_gTZyJf2LA0JI0RbrOKssuvfRCC0ZDA=s500-w500-h500-n-k?authuser=0" alt="Logo">
+        <div class="title-container">
+            <img class="title-image" src="https://lh3.googleusercontent.com/fife/ALs6j_FxPdkwW4dlAezwK1G2leeK59m5EsnLX859Td3h5CH6TtUHAUYhVV79GrrYiZN2E0Gd0I6idRItP3pGxZ2PMLmbWIQgUUBfiF_e1XiacEFNxhh_4WC4Usff9dRGoFd3oCs6j-1y0dY1bkDJ1zi24BUDoYh6KPzxqapkQUnrz7NGPpd_BWBAgzLpRskSkggX3aBrJH5CCK7hr0vOm69EbA-DYIak6-Zgs7wUN5H70TFh6AoIW5Ubvw81QQCAIZph_ucZaImuR22ZDrNTgZsCXxZX4MBcDetp01tXP4PhUfM9IMP8R6SapDdS4ZDenT2pTP9p3z9izAVA0meBa5anvwhe3Ix-QkDySX339ksFW-ZJ6XlNlpbYDvy2xnXWW9nFIAjvcnNQIuEA8aZx1rA5shYyS1DrcsBh_HH945BEPjJYNI4zcGRdD4DU8QFXrK_DWAxwLeEKdXHvvsDfNyWRaKUeiNM9YabS66DGUV13zMVjUT3fYHYyQh0CHRnX6oLDTs80npnZueP27hwsNkCBa0ZmyeWovuFC26anvlxnLE68UvUyPtDAFhItVBUw0GKp_TZmJyr7cbl1OEeVFkyT1uT4AGS85yoQTt83u9NIb5s7EXnUGtXaDcYEWsi9ur6eokAiNnIR2iGDC8wa9XA70f2KDDyCgIomYU5qhIjHX_1TlW-fJdUR8cOYPi2zCD0_oIyygd2Ga_6P2ACZquI45ZiH_5jFFudGog5FtnQtg1L4hTZc3_6ib8a2r1Ll3BnEg3UGoOGkeiHxvbDh26WCPD-3rciUATeICqXAMZF-TvMLml4y2FFp4eaUrUDo97-lGpZWbJyesFd06zDC0Rf1Xb1ujr3a2MLFTaNj5z2TyDdPg7ACq11oqtt0RylV85OXGHxpZ8HFcZJJSbmCGqIUkzEilsgIczAJt5owIeq0FydBwd0vM33VQCMEr5FCpOfU7a8ePKHS82nGJ6dftFGOLzrsLW6d7LyOAHT275gYPYLEURzco_7OlPc59RT94B_DO4UtxwT37fiyKR-h_uaPJvTy84GSPQrMZvEN_QEU3eLvIQrKheQ9Lp7fedDo6GL8DOkDyQeg-n9iZ5VRX6xfgnxcsUM9fnLnHDA7PL7Ln8nkGpBypHIC4B1TAPZLNQh3CTdd0aqLf-1Na0Jp7yvIEqZxKqmD0TBgFcfMY0ulE4FQFrB-LVVH_GcsX3b7xW4h5mscgQ=s850-w850-h295-n-k?authuser=0" alt="Ang Sangyaw Title">
+        </div>
+        <button class="menu-button" onclick="openSidebar()">☰</button>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <input type="text" id="search-bar" onkeyup="filterOptions()" placeholder="Search...">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#balita" onclick="showSection('balita')">Balita</a>
+        <a href="#artikulo" onclick="showSection('artikulo')">Artikulo</a>
+        <a href="#lathalain" onclick="showSection('lathalain')">Lathalain</a>
+        <a href="#politika" onclick="showSection('politika')">Politika</a>
+        <a href="#teknolohiya" onclick="showSection('teknolohiya')">Teknolohiya</a>
+        <a href="#sports" onclick="showSection('sports')">Sports</a>
+        <a href="#editoryal" onclick="showSection('editoryal')">Editoryal</a>
+    </div>
+
+    <div id="main">
+        <div id="home" class="section active-section">
+            <div class="welcome-container">
+                <h1>Maligayang Pagdating sa Ang Sangyaw</h1>
+                <p>Ang Sangyaw ay nag-aalok ng sariwang pananaw at mga kwento sa bawat aspeto ng ating buhay, mula sa mga pandaigdigang kaganapan hanggang sa mga lokal na balita at opinyon. Magsimula na tayo!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+            document.getElementById(sectionId).classList.add('active-section');
+        }
+
+        function filterOptions() {
+            const searchValue = document.getElementById("search-bar").value.toLowerCase();
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => {
+                if (link.textContent.toLowerCase().includes(searchValue)) {
+                    link.style.display = "block";
+                } else {
+                    link.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
